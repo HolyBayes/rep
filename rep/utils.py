@@ -314,7 +314,7 @@ def train_test_split(*arrays, **kw_args):
 
     """
     try: from sklearn import cross_validation
-    except: from sklearn import model_selection as cross_validation
+    except ImportError: from sklearn import model_selection as cross_validation
     allow_none = kw_args.pop('allow_none', False)
 
     assert len(arrays) > 0, "at least one array should be passed"
@@ -350,7 +350,7 @@ def train_test_split_group(group_column, *arrays, **kw_args):
         (useful for sample_weight - after splitting train and test of `None` are again `None`)
     """
     try: from sklearn import cross_validation
-    except: from sklearn import model_selection as cross_validation
+    except ImportError: from sklearn import model_selection as cross_validation
     allow_none = kw_args.pop('allow_none', None)
 
     assert len(arrays) > 0, "at least one array should be passed"

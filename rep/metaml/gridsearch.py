@@ -89,7 +89,7 @@ import copy
 import numpy
 from sklearn.base import clone
 try: from sklearn.cross_validation import StratifiedKFold, KFold
-except: from sklearn.model_selection import StratifiedKFold, KFold
+except ImportError: from sklearn.model_selection import StratifiedKFold, KFold
 from sklearn.ensemble.forest import RandomForestRegressor
 from sklearn.utils.random import check_random_state
 

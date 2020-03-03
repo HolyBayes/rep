@@ -11,7 +11,7 @@ from six.moves import zip
 
 from sklearn import clone
 try: from sklearn.cross_validation import KFold
-except: from sklearn.model_selection import KFold
+except ImportError: from sklearn.model_selection import KFold
 from sklearn.utils import check_random_state
 from . import utils
 from .factory import train_estimator
