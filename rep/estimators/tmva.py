@@ -103,7 +103,7 @@ class TMVABase(object):
             self._run_tmva_training(add_info, X, y, sample_weight)
         finally:
             self._remove_tmp_directory(directory)
-
+        if self.formula_xml is None: self.formula_xml = ''
         return self
 
     def _run_tmva_training(self, info, X, y, sample_weight):
