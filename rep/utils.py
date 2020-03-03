@@ -313,7 +313,8 @@ def train_test_split(*arrays, **kw_args):
         non-first arguments to be None (in this case, both resulting train and test parts are None).
 
     """
-    from sklearn import cross_validation
+    try: from sklearn import cross_validation
+    except: from sklearn import model_selection as cross_validation
     allow_none = kw_args.pop('allow_none', False)
 
     assert len(arrays) > 0, "at least one array should be passed"
@@ -348,7 +349,8 @@ def train_test_split_group(group_column, *arrays, **kw_args):
     :param bool allow_none: default False
         (useful for sample_weight - after splitting train and test of `None` are again `None`)
     """
-    from sklearn import cross_validation
+    try: from sklearn import cross_validation
+    except: from sklearn import model_selection as cross_validation
     allow_none = kw_args.pop('allow_none', None)
 
     assert len(arrays) > 0, "at least one array should be passed"
